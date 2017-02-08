@@ -1,0 +1,27 @@
+<!DOCTYPE module PUBLIC "-//Google Inc.//DTD Google Web Toolkit 2.8.0//EN"
+        "http://gwtproject.org/doctype/2.8.0/gwt-module.dtd">
+<module rename-to="gwtApp">
+
+    <!-- Inherit the core Web Toolkit stuff.   -->
+    <inherits name='com.google.gwt.user.User'/>
+
+    <!-- Inherit the  GWT style sheet. -->
+    <inherits name='com.google.gwt.user.theme.dark.Dark'/>
+
+    <!-- Specify the app entry point class. -->
+    <entry-point class='ru.gwtstudy.gwtApp.client.GwtApp'/>
+
+    <!-- Specify the paths for translatable code -->
+    <!--Only files found on the source path are candidates to be translated into JavaScript-->
+    <source path='client'/>
+    <source path='shared'/>
+
+    <!-- allow Super Dev Mode -->
+    <add-linker name="xsiframe"/>
+
+</module>
+
+        <!--Дескриптор главного модуля GWT приложения.-->
+
+
+
