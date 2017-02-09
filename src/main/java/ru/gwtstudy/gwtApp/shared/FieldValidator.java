@@ -6,6 +6,6 @@ package ru.gwtstudy.gwtApp.shared;
  */
 public class FieldValidator {
     public static boolean isValidData(String data) {
-        return data != null && data.length() >= 3;
+        return data == null || data.length() < 3;
     }
 }

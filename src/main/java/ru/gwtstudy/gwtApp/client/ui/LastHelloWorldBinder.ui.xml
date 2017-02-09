@@ -1,0 +1,6 @@
+<ui:UiBinder xmlns:ui='urn:ui:com.google.gwt.uibinder'>
+    <div>
+        Last Hello,
+        <span ui:field="nameSpan" style=""/>
+    </div>
+</ui:UiBinder>

@@ -5,6 +5,7 @@ import com.google.gwt.core.client.GWT;
 import com.google.gwt.event.dom.client.*;
 import com.google.gwt.user.client.rpc.AsyncCallback;
 import com.google.gwt.user.client.ui.*;
+import ru.gwtstudy.gwtApp.client.ui.LastHelloWorldBinder;
 import ru.gwtstudy.gwtApp.shared.FieldValidator;
 
 /**
@@ -24,6 +25,8 @@ public class GwtApp implements EntryPoint {
     private final HTML serverResponseHtml = new HTML();
     private final Label sendToServerLabel = new Label();
     private final Button closeButton = new Button("Close");
+
+    private LastHelloWorldBinder lastHelloWorld = new LastHelloWorldBinder();
     /*create gwtAppService
      with him make async process data
      and we need realize 2 methods on success and failure
@@ -36,7 +39,7 @@ public class GwtApp implements EntryPoint {
     see http://www.gwtproject.org/doc/latest/tutorial/RPC.html
     */
     private final GwtAppServiceIntfAsync gwtAppService = GWT.create(GwtAppServiceIntf.class);
-    private VerticalPanel dialogVPanel = new VerticalPanel();
+    private final VerticalPanel dialogVPanel = new VerticalPanel();
 
     //  This is the entry point method.
     public void onModuleLoad() {
@@ -56,6 +59,11 @@ public class GwtApp implements EntryPoint {
 
         RootPanel.get("confirmButtonId").add(confirmButton);
         RootPanel.get("errorLabelContainer").add(errorLabel);
+
+// Binder Example
+        lastHelloWorld.setName("Unknown");
+        RootPanel.getBodyElement().appendChild(lastHelloWorld.getElement());
+
 
         // Create the popup dialog box
         dialogBox.setText("Remote procedure call from server");
@@ -105,9 +113,9 @@ public class GwtApp implements EntryPoint {
     private void sendInfoToServer() {
         //validate input text
         errorLabel.setText("");
-        String nameToServer = nameField.getText();
-        if (!FieldValidator.isValidData(nameToServer)) { //отобразить ошибку на html странице
-            errorLabel.setText("More than 3 symbols");
+        final String nameToServer = nameField.getText();
+        if (FieldValidator.isValidData(nameToServer)) { //отобразить ошибку на html странице
+            errorLabel.setText("More than 3 symbols send");
             return;
         }
         sendToServerLabel.setText(nameToServer);
@@ -132,6 +140,8 @@ public class GwtApp implements EntryPoint {
                 serverResponseHtml.setHTML(result);
                 dialogBox.center();
                 closeButton.setFocus(true);
+                lastHelloWorld.setName(nameToServer);
+
             }
         });
     }

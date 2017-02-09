@@ -11,7 +11,7 @@ import ru.gwtstudy.gwtApp.shared.FieldValidator;
 public class GwtAppServiceImpl extends RemoteServiceServlet implements GwtAppServiceIntf {
 
     public String gwtAppCallServer(String data) throws IllegalArgumentException {
-        if (!FieldValidator.isValidData(data)) {
+        if (FieldValidator.isValidData(data)) {
             throw new IllegalArgumentException("More than 3 symbols");
         }
 

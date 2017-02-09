@@ -11,7 +11,7 @@ h1 {
     font-size: 2em;
     font-weight: bold;
     color: #777777;
-    margin: 40px 0px 70px;
+    margin: 40px 0 70px;
     text-align: center;
 }
 
@@ -33,7 +33,6 @@ h1 {
     color: red;
 }
 
-/** Set ids using widget.getElement().setId("idOfElement") */
 #closeButton {
     margin: 15px 6px 6px;
 }
